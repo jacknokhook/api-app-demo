@@ -11,7 +11,7 @@ on:
       - v*
 
 env:
-  IMAGE_NAME: kong-api
+  IMAGE_NAME: jack-api
 
 jobs:
   build:
@@ -105,7 +105,7 @@ jobs:
         run: |-
           sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
           sudo chmod +x /usr/bin/yq
-          for file in $(find ./helm-values -type f -name '*.yaml'); do
+          for file in $(find ./values -type f -name '*.yaml'); do
             ENV=$(yq e '.ENV' $file)
             if [ "$ENV" = "${{ needs.build.outputs.env }}" ]; then
               yq e -i '.API.tag = strenv(IMAGE)' $file

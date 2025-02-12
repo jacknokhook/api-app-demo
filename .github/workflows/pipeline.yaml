@@ -44,8 +44,8 @@ jobs:
             echo "image_tag=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
             echo "ref_tag=uat-$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
             echo "env=prd" >> $GITHUB_OUTPUT
-            echo "repo=miw1513/k8s-calculator-prd" >> $GITHUB_OUTPUT
-            echo "path_repo=k8s-calculator-prd" >> $GITHUB_OUTPUT
+            echo "repo=jacknokhook/k8s-app-nonprod" >> $GITHUB_OUTPUT
+            echo "path_repo=k8s-app-nonprod" >> $GITHUB_OUTPUT
           else
             echo "image_tag=dev-$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_OUTPUT
             echo "env=dev" >> $GITHUB_OUTPUT
